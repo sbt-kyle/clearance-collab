@@ -86,6 +86,7 @@
   display: none;
   position: absolute;
   left: 0;
+  height: 500px;
   width: 200px;
   background-color: #05041B;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -137,15 +138,16 @@
                   <a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Department</a>
               </li>
                 
-              <li class="relative flex align-center flex gap-5 border-b-2 pb-4 ml-4 mr-4 px-2 border-borderr pt-5 items-center justify-center pl-8 hover:bg-sky-700 cursor-pointer max-md:ml-3" id="rance">
-                <img class="w-6 h-6 max-md:w-5 max-md:h-5" src="asset/School Director.png" alt=""> 
+              <li class="pb-4 ml-4 mr-4 px-2 pt-5 items-center justify-start" id="rance">
             
-                  
-                  <span class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]">Clearance</span>
-                  <ul class="absolute top-14 right-0 hidden flex flex-col gap-6 text-white py-2 w-40 rounded-lg z-10 group-hover:block">
-                    <li class="hover:bg-sky-700 p-3 mt-2"><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="create-student-account.html">Approved</a></li>
-                    <li class="hover:bg-sky-700 p-3"><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Disapproved</a></li>
-                    <li class="hover:bg-sky-700 p-3"><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Pending</a></li>
+                  <span class="text-[16px] opacity-70 tracking-widest">CLEARANCE</span>
+
+                  <ul class="flex flex-col gap-10 mt-6">
+                    <li><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px] hover:bg-sky-700 py-5 px-6" href="#">Approved</a></li>
+
+                    <li><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px] hover:bg-sky-700 py-5 px-6" href="#">Disapproved</a></li>
+
+                    <li><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px] hover:bg-sky-700 py-5 px-6" href="#">Pending</a></li>
                   </ul>
               </li>
                   
@@ -169,18 +171,6 @@
               </label>
               <div class="burger-content">
 
-                <li class="flex gap-5 border-b-2 items-center justify-center pb-4 border-borderr mx-4 pt-5 mt-2 hover:bg-sky-700 cursor-pointer">
-
-                  <img class="w-6 h-6 max-md:w-5 max-md:h-5" src="asset/Tasklist.png" alt="">         
-                    <a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Section</a>
-                </li>
-
-                <li class="flex gap-5 border-b-2 pb-4 ml-4 mr-4 px-2 border-borderr pt-5 items-center justify-center hover:bg-sky-700 cursor-pointer">
-  
-                  <img class="w-6 h-6 max-md:w-5 max-md:h-5" src="asset/Tasklist.png" alt="">         
-                    <a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Subject</a>
-                </li>
-  
                 <li class="flex gap-5 border-b-2 pb-4 ml-4 mr-4 px-2 border-borderr pt-5 items-center justify-center hover:bg-sky-700 cursor-pointer">
     
                   <img class="w-6 h-6 max-md:w-5 max-md:h-5" src="asset/Student Center.png" alt="">         
@@ -190,14 +180,21 @@
                 <li class="flex gap-5 border-b-2 pb-4 ml-4 mr-4 px-2 border-borderr pt-5 items-center justify-center pl-8 hover:bg-sky-700 cursor-pointer max-md:ml-3">
     
                   <img class="w-6 h-6 max-md:w-5 max-md:h-5" src="asset/School Director.png" alt="">         
-                    <a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Instructor</a>
+                    <a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Department</a>
                 </li>
 
-                <li class="flex gap-5 border-b-2 pb-4 ml-4 mr-4 px-2 border-borderr pt-5 justify-center pl-8 hover:bg-sky-700 cursor-pointer max-md:ml-3">
-    
-                  <img class="w-6 h-6 max-md:w-5 max-md:h-5 max-sm:mt-3" src="asset/School Director.png" alt="">         
-                    <a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px]" href="#">Instructor Subjects</a>
-                </li>
+                <li class="pb-4 ml-4 mr-4 px-2 pt-5 items-center justify-start list-none" id="rance">
+            
+                  <span class="text-[14px] text-white opacity-70 tracking-widest">CLEARANCE</span>
+
+                  <ul class="flex flex-col gap-10 mt-6">
+                    <li><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px] hover:bg-sky-700 py-5 px-6" href="#">Approved</a></li>
+
+                    <li><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px] hover:bg-sky-700 py-5 px-6" href="#">Disapproved</a></li>
+
+                    <li><a class="text-[20px] font-bold max-xl:text-[18px] max-md:text-[16px] hover:bg-sky-700 py-5 px-6" href="#">Pending</a></li>
+                  </ul>
+              </li>
                   
                 
                 
@@ -287,18 +284,5 @@
               </div>
         </div>
     </section>
-
-    <script>
-
-      let dropdown = document.querySelector('#rance');
-    
-      dropdown.addEventListener('click', function () {
-        dropdown.classList.toggle('bg-gray-800');
-        dropdown.classList.toggle('text-white');
-        dropdown.querySelector('ul').classList.toggle('hidden');
-      });
-  
-    </script>
-
 </body>
 </html>
