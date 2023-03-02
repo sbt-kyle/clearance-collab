@@ -1,237 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Department Officer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-                fontFamily: {
-                    mont: "'Montserrat', sans-serif",
-                },
-              colors: {
-                darkblue: '#05041B',
-                grayish: '#d6d8f3',
-                dirtywhite: '#f1f1f1',
-                borderr: '#252440',
-                blacky: '#000000',
-                tableborderr: 'B5B5B5',
-              }
-            }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Officer</title>
+  <link rel="icon" type="image/x-icon" href="asset/chcc vector logo.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mont: "'Montserrat', sans-serif",
+          },
+          colors: {
+            darkblue: '#05041B',
+            grayish: '#d6d8f3',
+            dirtywhite: '#f1f1f1',
+            borderr: '#252440',
+            blacky: '#000000',
+            tableborderr: '#B5B5B5',
+            checkb: '#1812A4',
+            greeny: '#EEFFEA',
           }
         }
-      </script>
+      }
+    }
+  </script>
+
+  <style>
+    .burger-menu {
+      position: relative;
+      display: inline-block;
+    }
+
+    .burger-menu input[type="checkbox"] {
+      display: none;
+    }
+
+    .burger-menu label {
+      display: block;
+      width: 30px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .burger-menu label span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #333;
+      position: absolute;
+      top: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .burger-menu label span:nth-child(1) {
+      margin-top: 10px;
+    }
+
+    .burger-menu label span:nth-child(2) {
+      margin-left: 10px;
+    }
+
+    .burger-menu label span:nth-child(3) {
+      margin-bottom: 10px;
+      
+    }
+
+
+    .burger-menu input[type="checkbox"]:checked+label span:nth-of-type(1) {
+      transform: rotateX(200deg);
+    }
+
+    .burger-menu input[type="checkbox"]:checked+label span:nth-of-type(2) {
+      transform: scale(0);
+    }
+
+    .burger-menu input[type="checkbox"]:checked+label span:nth-of-type(3) {
+      transform: rotateX(-200deg);
+    }
+
+    .burger-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      width: auto;
+      margin-top: 40px;
+      height: 350px;
+      z-index: 1000;
+    }
+
+    .burger-menu input[type="checkbox"]:checked+label+.burger-content {
+      display: block;
+      animation: slide-down 0.3s ease;
+    }
+
+    .burger-content a {
+      text-decoration: none;
+    }
+
+    /* ::-webkit-scrollbar {
+      display: none;
+    } */
+
+    @keyframes slide-down {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+  </style>
 </head>
 
 <body class="font-mont">
-    
-    <section class="flex">
-       <!-- leftcolumn -->
-        <div class="bg-darkblue w-80 h-screen text-white">
-            <h1 class="p-5 text-2xl font-bold text-center">Dashboard</h1>
 
-            <ul class="mt-20">
-              <li class="relative flex align-center gap-5 pb-2 ml-4 mr-4 px-2 border-borderr pt-3 mt-2 pl-8 hover:bg-sky-700 cursor-pointer text-xl font-bold" id="rance">
-                <img class="w-7 h-7" src="icons/School Director.png" alt=""> 
+  <section class="flex bg-dirtywhite max-w-[1920px]">
 
-                  Clearance
-                  <ul class="absolute top-14 right-0 hidden flex flex-col gap-6 text-white py-2 w-40 rounded-lg z-10 group-hover:block">
-                    <li class=""><a href="create-student-account.html">Approved</a></li>
-                    <li><a href="#">Disapproved</a></li>
-                    <li><a href="#">Pending</a></li>
-                  </ul>
-              </li>
-                
-            </ul>
+    <!-- leftcolumn -->
+    <div class="flex flex-col items-center relative w-[200px] bg-darkblue h-auto max-md:hidden 2xl:w-[250px]">
 
+      <div class="flex-col flex items-center my-[30px]">
+
+        <h1 class="text-white font-bold">
+          Dashboard</h1>
+
+      </div>
+
+      <ul class="flex flex-col items-center my-12 text-white">
+
+        <li class="pb-4 ml-4 mr-4 px-2 pt-5 flex flex-col" id="rance">
+      
+          <span class="opacity-50 tracking-widest" style="font-size: clamp(0.625rem, 0.4375rem + 0.4688vw, 1rem);">CLEARANCE</span>
+
+          <ul class="flex flex-col gap-10 mt-6">
+            <li class="self-end hover:font-medium"><a class="" style="font-size: clamp(0.875rem, 0.75rem + 0.3125vw, 1.125rem);" href="#">Approved</a></li>
+
+            <li class="self-end hover:font-medium"><a class="" style="font-size: clamp(0.875rem, 0.75rem + 0.3125vw, 1.125rem);" href="#">Disapproved</a></li>
+
+            <li class="self-end hover:font-medium"><a class="" style="font-size: clamp(0.875rem, 0.75rem + 0.3125vw, 1.125rem);" href="#">Pending</a></li>
+          </ul>
+      </li>
+
+      </ul>
+
+    </div>
+
+    <!-- right-column -->
+    <div class="w-screen h-screen overflow-y-scroll scrollbar-y-hidden">
+
+      <!-- header -->
+      <header
+        class="flex w-[100%] bg-white items-center justify-between py-[20px] px-[50px]">
+
+        <img class="max-2xl:w-[120px]" src="asset/CHCC logo.png" alt="">
+
+        <div class="flex items-center gap-5">
+          <img
+            class="w-[57px] h-[57px] max-lg:w-[40px] max-lg:h-[40px] max-2xl:w-[45px] max-2xl:h-[45px] max-sm:h-[35px] max-sm:w-[35px] max-md:hidden"
+            src="asset/user-profile.png" alt="user-profile">
         </div>
 
-
-        
-        <!-- rightcolumn -->
-        <div class="w-screen bg-dirtywhite flex flex-col items-center">
-
-            <!-- header -->
-            <div class="w-full flex items-center justify-between mx-auto bg-white py-2 pl-12 pr-28 h-32">
-  
-              <a href="#"><img class="w-60" src="icons/CHCC logo.png" alt=""></a>
-  
-              <a href="#"><img class="w-14 h-14" src="icons/user-profile.png" alt=""></a>
-  
-            </div>
-  
-
-            
+        <div class="burger-menu hidden max-md:block">
 
 
-            <!-- content -->
-              <div class="w-11/12 h-auto pb-20 bg-white my-10 rounded-xl flex flex-col">
-                
-                <div class="flex flex-col w-11/12 pt-20 gap-6 mx-auto">
-  
-                  <div class="flex justify-between w-full">
-                      <h1 class="text-blacky font-bold text-3xl">Approved Student Clearance</h1>
-  
-                      <div class="relative">
-  
-                          <input type="text" class="text-gray-700 rounded-xl py-2 pl-5 pr-4 focus:outline-none focus:shadow-outline w-96 bg-gray-50">
-  
-                          <button class="absolute right-0 top-0 mt-3 mr-4">
-                            <svg class="h-5 w-5 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-                          </button>
-  
-                      </div>
-                        
-                      
-                  </div>
-  
-                  <div class="flex items-center">
-                    <table class="table-auto text-center w-full text-lg">
-                      <thead>
-                        <tr class="space-y-3">
-                          <th>Student No.</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Middle Name</th>
-                          <th>Sex</th>
-                          <th>Year</th>
-                          <th>Course</th>
-                          <th>Section</th>
-                          <th class="flex justify-center pb-3">Action</th>
-                        </tr>
-                      </thead>
-  
-                      <tbody class="space-y-6 border text-center">
-                        <tr class="border-2 bg-green-100">
-                          <td>10672021</td>
-                          <td>Arvin</td>
-                          <td>Gomez</td>
-                          <td>Pineda</td>
-                          <td>Male</td>
-                          <td>4</td>
-                          <td>BSCS</td>
-                          <td>BSCS4A</td>
-                          <td class="flex gap-2 justify-center align-center p-3">
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/edit-icon.png" alt="">
-  
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/setting-icon.png" alt="">
-                          </td>
-                        </tr>
-                      </tbody>
+          <input type="checkbox" id="burger-toggle">
+          <label for="burger-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <div class="burger-content bg-darkblue border border-blu">
 
-                      <tbody class="space-y-6 border text-center">
-                        <tr class="border-2 bg-green-100">
-                          <td>10672021</td>
-                          <td>Arvin</td>
-                          <td>Gomez</td>
-                          <td>Pineda</td>
-                          <td>Male</td>
-                          <td>4</td>
-                          <td>BSCS</td>
-                          <td>BSCS4A</td>
-                          <td class="flex gap-2 justify-center align-center p-3">
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/edit-icon.png" alt="">
-  
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/setting-icon.png" alt="">
-                          </td>
-                        </tr>
-                      </tbody>
+            <ul class="flex flex-col items-center my-5 gap-2 text-white">
 
-                      <tbody class="space-y-6 border text-center">
-                        <tr class="border-2 bg-green-100">
-                          <td>10672021</td>
-                          <td>Arvin</td>
-                          <td>Gomez</td>
-                          <td>Pineda</td>
-                          <td>Male</td>
-                          <td>4</td>
-                          <td>BSCS</td>
-                          <td>BSCS4A</td>
-                          <td class="flex gap-2 justify-center align-center p-3">
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/edit-icon.png" alt="">
-  
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/setting-icon.png" alt="">
-                          </td>
-                        </tr>
-                      </tbody>
+                <img
+                  class="w-[57px] h-[57px] max-lg:w-[40px] max-lg:h-[40px] max-2xl:w-[45px] max-2xl:h-[45px] max-sm:h-[35px] max-sm:w-[35px] max-md:w-[50px] max-md:h-[50px]"
+                  src="asset/user-profile.png" alt="user-profile">
 
-                      <tbody class="space-y-6 border text-center">
-                        <tr class="border-2 bg-green-100">
-                          <td>10672021</td>
-                          <td>Arvin</td>
-                          <td>Gomez</td>
-                          <td>Pineda</td>
-                          <td>Male</td>
-                          <td>4</td>
-                          <td>BSCS</td>
-                          <td>BSCS4A</td>
-                          <td class="flex gap-2 justify-center align-center p-3">
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/edit-icon.png" alt="">
-  
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/setting-icon.png" alt="">
-                          </td>
-                        </tr>
-                      </tbody>
-
-                      <tbody class="space-y-6 border text-center">
-                        <tr class="border-2 bg-green-100">
-                          <td>10672021</td>
-                          <td>Arvin</td>
-                          <td>Gomez</td>
-                          <td>Pineda</td>
-                          <td>Male</td>
-                          <td>4</td>
-                          <td>BSCS</td>
-                          <td>BSCS4A</td>
-                          <td class="flex gap-2 justify-center align-center p-3">
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/edit-icon.png" alt="">
-  
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/setting-icon.png" alt="">
-                          </td>
-                        </tr>
-                      </tbody>
-
-                      <tbody class="space-y-6 border text-center">
-                        <tr class="border-2 bg-green-100">
-                          <td>10672021</td>
-                          <td>Arvin</td>
-                          <td>Gomez</td>
-                          <td>Pineda</td>
-                          <td>Male</td>
-                          <td>4</td>
-                          <td>BSCS</td>
-                          <td>BSCS4A</td>
-                          <td class="flex gap-2 justify-center align-center p-3">
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/edit-icon.png" alt="">
-  
-                            <img class="cursor-pointer hover:bg-sky-700" src="/clearance-frontend/icons/setting-icon.png" alt="">
-                          </td>
-                        </tr>
-                      </tbody>
-  
-                      
-                      </div>  
-                </div>
-          </div>
-    </section>
-
-    <script>
-
-      let dropdown = document.querySelector('#rance');
+                  <li class="pb-4 ml-4 mr-4 px-2 pt-5 items-center justify-start list-none" id="rance">
+          
+                    <span class="text-[14px] text-white opacity-70 tracking-widest">CLEARANCE</span>
     
-      dropdown.addEventListener('click', function () {
-        dropdown.classList.toggle('bg-gray-800');
-        dropdown.classList.toggle('text-white');
-        dropdown.querySelector('ul').classList.toggle('hidden');
+                    <ul class="flex flex-col gap-10 mt-6">
+                      <li><a class="text-[18px] max-xl:text-[16px] max-md:text-[14px] hover:bg-sky-700 py-5 px-6" href="#">Approved</a></li>
+    
+                      <li><a class="text-[18px] max-xl:text-[16px] max-md:text-[14px] hover:bg-sky-700 py-5 px-6" href="#">Disapproved</a></li>
+    
+                      <li><a class="text-[18px] max-xl:text-[16px] max-md:text-[14px] hover:bg-sky-700 py-5 px-6" href="#">Pending</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+
+          </div>
+        </div>
+      </header>
+
+      <main class="w-[97%] h-auto bg-white overflow-x-hidden mt-5 mx-auto rounded-xl flex-col mb-10">
+
+      <div class="flex flex-col pt-10 pb-5 px-5 gap-4 md:px-10 xl:flex-row xl:justify-between">
+
+        <h1 class="text-blacky font-semibold" style="font-size: clamp(1.1875rem, 0.9375rem + 0.625vw, 1.6875rem);">Approved Student Clearance</h1>
+
+        <div class="relative">
+          <input type="text" id="searchInput"
+            class="border-2 text-gray-700 rounded-xl py-2 pl-5 pr-4 focus:outline-none focus:shadow-outline w-full xl:w-[500px]"
+            placeholder="Search...">
+          <button class="absolute right-0 top-0 mt-3 mr-4">
+            <svg class="h-5 w-5 text-gray-600" fill="none" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+              <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- table here -->
+
+      <div class="w-full pb-10 overflow-x-auto px-3 lg:px-10 xl:px-10">
+        
+        <table id="dataTable"
+        class="table-auto text-center w-[1920px] text-lg xl:w-full" style="font-size: clamp(0.875rem, 0.75rem + 0.3125vw, 1.125rem);">
+        <thead>
+          <tr class="space-y-3 text-sm md:text-base lg:text-lg font-bold">
+            <th>Student No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Sex</th>
+            <th>Year</th>
+            <th>Course</th>
+            <th>Section</th>
+            <th class="flex justify-center pb-3">Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="border bg-greeny text-sm md:text-base lg:text-lg font-regular">
+            <td>1</td>
+            <td>Jobert</td>
+            <td>Gomez</td>
+            <td>A.</td>
+            <td>Male</td>
+            <td>4th</td>
+            <td>Computer Science</td>
+            <td>Section A</td>
+            <td class="flex gap-2 justify-center align-center p-3">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/edit-icon.png" alt="">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/setting-icon.png" alt="">
+            </td>
+          </tr>
+
+          <tr class="border bg-greeny text-sm md:text-base lg:text-lg font-regular">
+            <td>1</td>
+            <td>Jobert</td>
+            <td>Gomez</td>
+            <td>A.</td>
+            <td>Male</td>
+            <td>4th</td>
+            <td>Computer Science</td>
+            <td>Section A</td>
+            <td class="flex gap-2 justify-center align-center p-3">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/edit-icon.png" alt="">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/setting-icon.png" alt="">
+            </td>
+          </tr>
+
+          <tr class="border bg-greeny text-sm md:text-base lg:text-lg font-regular">
+            <td>1</td>
+            <td>sobert</td>
+            <td>Gomez</td>
+            <td>A.</td>
+            <td>Male</td>
+            <td>4th</td>
+            <td>Computer Science</td>
+            <td>Section A</td>
+            <td class="flex gap-2 justify-center align-center p-3">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/edit-icon.png" alt="">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/setting-icon.png" alt="">
+            </td>
+          </tr>
+
+          <tr class="border bg-greeny text-sm md:text-base lg:text-lg font-regular">
+            <td>1</td>
+            <td>Jobert</td>
+            <td>Gomez</td>
+            <td>A.</td>
+            <td>Male</td>
+            <td>4th</td>
+            <td>Computer Science</td>
+            <td>Section A</td>
+            <td class="flex gap-2 justify-center align-center p-3">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/edit-icon.png" alt="">
+              <img class="cursor-pointer hover:bg-sky-700 max-md:w-7 max-md:h-7" src="asset/setting-icon.png" alt="">
+            </td>
+          </tr>
+          
+         
+        </tbody>
+      </table>
+
+      </div>
+
+
+      </div>
+
+      </main>
+
+
+  </section>
+</body>
+
+<script>
+  const searchInput = document.querySelector('input[type="text"]');
+  const rows = document.querySelectorAll('table tbody tr');
+
+  searchInput.addEventListener('keyup', function (event) {
+    const searchTerm = event.target.value.toLowerCase();
+
+    rows.forEach(row => {
+      const columns = row.querySelectorAll('td');
+      let found = false;
+
+      columns.forEach(column => {
+        if (column.textContent.toLowerCase().includes(searchTerm)) {
+          found = true;
+        }
       });
 
-    </script>
-</body>
+      if (found) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+</script>
+
 </html>
